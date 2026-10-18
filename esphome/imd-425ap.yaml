@@ -1,5 +1,5 @@
 esphome:
-  name: imd-425ap
+  name: imp-425ap
   friendly_name: UPS Powercom
 
 esp8266:
@@ -12,7 +12,7 @@ logger:
 
 api:
   encryption:
-    key: !secret imd_425ap__encryption_key
+    key: !secret imp_425ap__encryption_key
 ota:
   - platform: esphome
 
@@ -20,7 +20,7 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   ap:
-    ssid: IMD-425AP
+    ssid: IMP-425AP
     password: p12345678
 
 # Настройка UART
