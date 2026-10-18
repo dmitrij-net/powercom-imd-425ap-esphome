@@ -358,6 +358,31 @@ interval:
                   }
                 } else {
                   ESP_LOGW("ups", "Недостаточно данных: %d байт", id(ups_uart).available());
+                  // Помечаем числовые сенсоры как недоступные
+                  id(ups_load).publish_state(NAN);
+                  id(ups_battery).publish_state(NAN);
+                  id(ups_input_voltage).publish_state(NAN);
+                  id(ups_output_voltage).publish_state(NAN);
+                  id(ups_input_freq).publish_state(NAN);
+                  id(ups_output_freq).publish_state(NAN);
+
+                  // Очищаем состояния бинарных сенсоров (статусы)
+                  id(ups_ac_power_lost).invalidate_state();
+                  id(ups_low_battery).invalidate_state();
+                  id(ups_overload).invalidate_state();
+                  id(ups_voltage_low).invalidate_state();
+                  id(ups_voltage_high).invalidate_state();
+                  id(ups_status_bit5).invalidate_state();
+                  id(ups_status_bit7).invalidate_state();
+                  id(ups_status_bit8).invalidate_state();
+                  id(ups_self_test).invalidate_state();
+                  id(ups_beeper_muted).invalidate_state();
+                  id(ups_green_mode).invalidate_state();
+
+                  // Очищаем текстовые сенсоры
+                  id(ups_raw_packet).publish_state("");
+                  id(ups_unknown_bytes).publish_state("");
+                  
                   // === СБОЙ: ИБП не ответил ===
                   id(ups_next_poll_time) = millis() + 30000;
                   if (millis() > id(ups_switch_locked_until)) {
