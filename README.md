@@ -1,7 +1,7 @@
-# powercom-imd-425ap-esphome
-Интеграция ИБП Powercom IMD-425AP в Home Assistant через ESPHome (UART протокол)
+# powercom-imp-425ap-esphome
+Интеграция ИБП Powercom IMP-425AP в Home Assistant через ESPHome (UART протокол)
 
-Этот проект позволяет полностью интегрировать ИБП **Powercom IMD-425AP** (серия IMPERIAL) в Home Assistant через ESP-01 (ESP8266), минуя штатный USB-мост (CY7C63723).
+Этот проект позволяет полностью интегрировать ИБП **Powercom IMP-425AP** (серия IMPERIAL) в Home Assistant через ESP-01 (ESP8266), минуя штатный USB-мост (CY7C63723).
 
 Устройство подключается напрямую к внутреннему UART микроконтроллера (68HC08JL3) ИБП, что позволяет не только читать данные, но и удаленно управлять питанием и запускать тесты.
 
